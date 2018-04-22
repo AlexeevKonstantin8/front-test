@@ -1,0 +1,7 @@
+<div class="search">
+  Search
+  <div class="search-input">
+    <img src="assets/icons/icon-search.png">
+    <input [(ngModel)]="filterVal" (ngModelChange)="filterValChange.emit($event)">
+  </div>
+</div>

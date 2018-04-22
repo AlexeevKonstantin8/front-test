@@ -1,0 +1,13 @@
+<div class="custom-select">
+  <div class="selected"
+       [style.backgroundColor]="selectedRow.color"
+       (click)="onChange($event)"
+  ></div>
+  <div class="select" *ngIf="isPopupOpened">
+    <div class="option"
+         [ngClass]="{'option__active': row.id === selectedRow.id}"
+         *ngFor="let row of rows"
+         (click)="onRowClick(row)"
+    >{{row.value}}</div>
+  </div>
+</div>

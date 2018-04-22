@@ -1,0 +1,32 @@
+@import '../../shared/styles/mixins/popup.mixin'
+
+.light
+  height: 100%
+  @include popup-wrapper(1)
+  form label
+    span
+      color: black
+    input
+      border: 1px solid gray
+
+
+.dark
+  height: 100%
+  @include popup-wrapper(3)
+  form label
+    span
+      color: white
+
+form
+  padding: 10px
+  label
+    display: block
+    padding: 10px 0
+    span
+      display: inline-block
+      width: 100px
+    input
+      background-color: white
+      padding: 5px
+      border: none
+      outline: none

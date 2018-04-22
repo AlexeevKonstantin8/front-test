@@ -1,0 +1,33 @@
+<div [ngClass]="{'light': selectedColorItemId === 0, 'dark': selectedColorItemId === 1}">
+  <div class="popup-wrapper">
+    <div class="header">User albums</div>
+    <div class="popup-content">
+      <div class="search-wrapper">
+        <app-search [(filterVal)]="filterVal"></app-search>
+      </div>
+      <div class="popup-table-container">
+        <div class="table">
+          <div class="thead">
+            <div class="tr">
+              <div class="th">ID</div>
+              <div class="th">Title</div>
+            </div>
+          </div>
+          <div class="tbody">
+            <div class="tr" *ngFor="let album of userAlbumsList | filterByName:filterVal:'title'">
+              <div class="td">
+                {{album.id}}
+              </div>
+              <div class="td">
+                {{album.title}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <button class="pull-right" (click)="onNoClick()">Close</button>
+    </div>
+  </div>
+</div>

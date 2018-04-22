@@ -1,0 +1,19 @@
+@import '../../shared/styles/mixins/popup.mixin'
+@import '../../shared/styles/mixins/table.mixin'
+
+.search-wrapper
+  padding: 10px
+  height: 50px
+
+.popup-table-container
+  height: calc(100% - 50px)
+
+.light
+  height: 100%
+  @include table(2, 1)
+  @include popup-wrapper(1)
+
+.dark
+  height: 100%
+  @include table(2, 2)
+  @include popup-wrapper(2)

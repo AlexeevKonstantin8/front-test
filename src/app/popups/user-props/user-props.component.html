@@ -1,0 +1,35 @@
+<div [ngClass]="{'light': selectedColorItemId === 0, 'dark': selectedColorItemId === 1}">
+  <div class="popup-wrapper">
+    <div class="header">Edit user</div>
+    <div class="popup-content">
+      <form [formGroup]="form">
+        <label>
+          <span>Name</span>
+          <input formControlName="name" [(ngModel)]="user.name">
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" formControlName="email" [(ngModel)]="user.email">
+        </label>
+        <label>
+          <span>Phone</span>
+          <input formControlName="phone" [(ngModel)]="user.phone">
+        </label>
+        <div formGroupName="address">
+          <label>
+            <span>City</span>
+            <input formControlName="city" [(ngModel)]="user.address.city">
+          </label>
+          <label>
+            <span>Street</span>
+            <input formControlName="street" [(ngModel)]="user.address.street">
+          </label>
+        </div>
+      </form>
+    </div>
+    <div class="footer">
+      <button [disabled]="isSaving" (click)="onSaveClick()">Save</button>
+      <button class="pull-right" (click)="onCloseClick()">Close</button>
+    </div>
+  </div>
+</div>

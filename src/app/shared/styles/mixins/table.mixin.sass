@@ -1,0 +1,64 @@
+@import '../../styles/variables'
+
+@mixin table($column-count, $color)
+  .table
+    height: 100%
+
+  .thead
+    height: 50px
+    & .tr
+      display: inline-block
+      width: calc(100% - 17px)
+      height: 100%
+      & .th
+        border-top: 1px solid rgba(0, 0, 0, 0.1)
+
+  .tbody
+    overflow-y: scroll
+    max-height: calc(100% - 50px)
+
+    & .tr
+      height: 45px
+
+  .td,
+  .th
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+    border-left: 1px solid rgba(0, 0, 0, 0.1)
+    padding: 10px 5px
+    display: inline-block
+    height: 100%
+    text-align: center
+    float: left
+    overflow: hidden
+    &:last-child
+      border-right: 1px solid rgba(0, 0, 0, 0.1)
+    @if ($color == 1)
+      color: black
+    @if ($color == 2)
+      color: white
+
+  .tr .td:first-child,
+  .tr .th:first-child
+    width: 5%
+
+  .tr .th:not(:first-child),
+  .tr .td:not(:first-child)
+    width: percentage(0.95/($column-count - 1))
+
+  .thead .th
+    @if ($color == 1)
+      background-color: $table_head_background_color_light
+    @if ($color == 2)
+      background-color: $table_head_background_color_dark
+
+  .tbody .tr:nth-child(odd)
+    @if ($color == 1)
+      background-color: $table_odd_row_background_color_light
+    @if ($color == 2)
+      background-color: $table_odd_row_background_color_dark
+
+  .tbody .tr:nth-child(even)
+    @if ($color == 1)
+      background-color: $table_even_row_background_color_light
+    @if ($color == 2)
+      background-color: $table_even_row_background_color_dark
